@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 require('./models/Event');
 const getRoute = require('./routes/getRoute');
 
-const mongoURI = 'mongodb://root:root@ds117730.mlab.com:17730/eventhub-dev';
+const mongoURI = require('./config/dbConnect').dbURI;
 
 mongoose.connect(mongoURI);
 
