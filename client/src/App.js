@@ -1,21 +1,38 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import EventForm from './components/event_form/event_form';
+import { Grid, Col, Well } from 'react-bootstrap';
+import moment from 'moment';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      startDate: moment()
+    };
+  }
+
   render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
+    return <AppLayout selectedDate={this.state.startDate} />;
   }
 }
 
 export default App;
+
+const AppLayout = props => {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <h1 className="App-title">EventHub</h1>
+      </header>
+      <p className="App-intro">Event form</p>
+      <Grid fluid={true}>
+        <Col xs={12} mdOffset={3} md={6}>
+          <Well>
+            <EventForm selectedDate={props.selectedDate} />
+          </Well>
+        </Col>
+      </Grid>
+    </div>
+  );
+};
