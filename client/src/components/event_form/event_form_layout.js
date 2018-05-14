@@ -5,12 +5,19 @@ import {
   FormGroup,
   Col,
   FormControl,
-  ControlLabel
+  ControlLabel,
+  ButtonToolbar,
+  Button,
+  Glyphicon
 } from 'react-bootstrap';
 import 'react-datepicker/dist/react-datepicker.css';
 import './event_form.css';
 
-const EventForm = props => {
+const EventFormLayout = ({
+  selectedDate,
+  handleDateChange,
+  handleInputChange
+}) => {
   return (
     <Form horizontal>
       <FormGroup controlId="formHorizontalFirstName">
@@ -18,7 +25,12 @@ const EventForm = props => {
           First Name
         </Col>
         <Col sm={9}>
-          <FormControl type="email" placeholder="First Name" />
+          <FormControl
+            type="text"
+            placeholder="First Name"
+            name={'firstName'}
+            onChange={handleInputChange}
+          />
         </Col>
       </FormGroup>
       <FormGroup controlId="formHorizontalLastName">
@@ -26,7 +38,12 @@ const EventForm = props => {
           Last Name
         </Col>
         <Col sm={9}>
-          <FormControl type="email" placeholder="Last Name" />
+          <FormControl
+            type="text"
+            placeholder="Last Name"
+            name={'lastName'}
+            onChange={handleInputChange}
+          />
         </Col>
       </FormGroup>
       <FormGroup controlId="formHorizontalEmail">
@@ -34,7 +51,12 @@ const EventForm = props => {
           Email
         </Col>
         <Col sm={9}>
-          <FormControl type="email" placeholder="Email" />
+          <FormControl
+            type="email"
+            placeholder="Email"
+            name={'email'}
+            onChange={handleInputChange}
+          />
         </Col>
       </FormGroup>
       <FormGroup controlId="formHorizontalDate">
@@ -44,16 +66,28 @@ const EventForm = props => {
         <Col sm={9}>
           <DatePicker
             customInput={<FormControl />}
-            selected={props.selectedDate}
-            onChange={this.handleChange}
+            selected={selectedDate}
+            onChange={handleDateChange}
             showTimeSelect
             timeFormat="HH:mm"
-            dateFormat="LLL"
+            dateFormat="DD-MM-YYYY HH:mm"
           />
         </Col>
       </FormGroup>
+      <FormButtonsLayout />
     </Form>
   );
 };
 
-export default EventForm;
+export default EventFormLayout;
+
+const FormButtonsLayout = props => {
+  return (
+    <ButtonToolbar>
+      <Button xs={3} type="submit" bsStyle="success">
+        <Glyphicon glyph="ok" />
+        <span> Save</span>
+      </Button>
+    </ButtonToolbar>
+  );
+};

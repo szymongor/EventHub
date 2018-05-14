@@ -1,19 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
-import EventForm from './components/event_form/event_form';
+import EventForm from './components/event_form/Event_form';
 import { Grid, Col, Well } from 'react-bootstrap';
-import moment from 'moment';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      startDate: moment()
-    };
-  }
-
   render() {
-    return <AppLayout selectedDate={this.state.startDate} />;
+    return <AppLayout />;
   }
 }
 
@@ -29,7 +21,7 @@ const AppLayout = props => {
       <Grid fluid={true}>
         <Col xs={12} mdOffset={3} md={6}>
           <Well>
-            <EventForm selectedDate={props.selectedDate} />
+            <EventForm />
           </Well>
         </Col>
       </Grid>
