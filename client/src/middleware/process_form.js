@@ -4,6 +4,8 @@ import {
   FORM_SUBMIT
 } from '../actions/form_actions';
 
+import { postCategory } from '../actions/api_actions';
+
 const normalizeForm = store => next => action => {
   if (action.type === FORM_SUBMIT) {
     let formFields = action.payload.formFields;
@@ -41,6 +43,7 @@ const actionRouter = store => next => action => {
   if (action.type === FORM_SUBMIT) {
     if (action.payload.status.validForm) {
       store.dispatch(validFormSubmit(action.payload.data));
+      store.dispatch(postCategory(action.payload.data));
     } else {
       store.dispatch(invalidFormSubmit(action.payload.status));
     }
