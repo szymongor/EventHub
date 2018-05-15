@@ -1,10 +1,17 @@
 const mongoose = require('mongoose');
-const Event = mongoose.model('event');
+const Event = require('../models/Event');
 
 module.exports = app => {
   app.post('/addEvent', (req, res) => {
-    console.log('REQUEST: ', req.body);
-    res.send({});
-    //new Event({ firstName: 'test', lastName: 'lastTest' }).save();
+    var event = req.body;
+    Event.addEvent(event, (err, event) => {
+      if (err) {
+        throw err;
+      }
+      res.json(event);
+      // Event.find({}, (err, docs) => {
+      //   console.log(docs);
+      // });
+    });
   });
 };

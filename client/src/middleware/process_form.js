@@ -11,9 +11,10 @@ const normalizeForm = store => next => action => {
       firstName: formFields.firstName,
       lastName: formFields.lastName,
       email: formFields.email,
-      eventDate: formFields.startDate.unix()
+      eventDate: formFields.startDate.format()
     };
     action.payload.data = formData;
+    console.log(formData);
   }
   let result = next(action);
 

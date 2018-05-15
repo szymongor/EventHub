@@ -3,7 +3,15 @@ const { Schema } = mongoose;
 
 const eventSchema = new Schema({
   firstName: String,
-  lastName: String
+  lastName: String,
+  email: String,
+  eventDate: Date
 });
 
-mongoose.model('event', eventSchema);
+const Event = (module.exports = mongoose.model('event', eventSchema));
+
+module.exports.addEvent = (event, callback) => {
+  console.log('Event: ', event);
+  var event = new Event(event);
+  event.save(callback);
+};

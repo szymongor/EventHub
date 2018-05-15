@@ -10,8 +10,8 @@ const mongoURI = require('./config/dbConnect').dbURI;
 mongoose.connect(mongoURI);
 
 const app = express();
-app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
 getRoute(app);
 postEvent(app);
 
