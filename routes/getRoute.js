@@ -3,6 +3,7 @@ const Event = mongoose.model('event');
 
 module.exports = app => {
   app.get('/', (req, res) => {
+    console.log('Hi');
     res.send({ hi: 'there' });
   });
 
