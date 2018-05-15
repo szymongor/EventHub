@@ -8,7 +8,8 @@ import {
   ControlLabel,
   ButtonToolbar,
   Button,
-  Glyphicon
+  Glyphicon,
+  Alert
 } from 'react-bootstrap';
 import 'react-datepicker/dist/react-datepicker.css';
 import './event_form.css';
@@ -17,7 +18,9 @@ const EventFormLayout = ({
   selectedDate,
   handleDateChange,
   handleInputChange,
-  handleSubmit
+  handleSubmit,
+  status,
+  message
 }) => {
   return (
     <Form horizontal onSubmit={handleSubmit}>
@@ -75,6 +78,7 @@ const EventFormLayout = ({
           />
         </Col>
       </FormGroup>
+      <Message status={status} message={message} />
       <FormButtonsLayout />
     </Form>
   );
@@ -91,4 +95,14 @@ const FormButtonsLayout = props => {
       </Button>
     </ButtonToolbar>
   );
+};
+
+const Message = ({ status, message }) => {
+  if (status === 'SUCCESS') {
+    return <Alert bsStyle="success">{message}</Alert>;
+  } else if (status === 'FAIL') {
+    return <Alert bsStyle="danger">{message}</Alert>;
+  } else {
+    return <div />;
+  }
 };

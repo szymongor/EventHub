@@ -1,6 +1,7 @@
 export const FORM_SUBMIT = 'FORM_SUBMIT';
 export const VALID_FORM_SUBMIT = 'VALID_FORM_SUBMIT';
 export const INVALID_FORM_SUBMIT = 'INVALID_FORM_SUBMIT';
+export const CLEAR_STATUS = 'CLEAR_STATUS';
 
 export function formSubmit(formFields) {
   return {
@@ -28,5 +29,11 @@ export function invalidFormSubmit(status) {
     payload: {
       status
     }
+  };
+}
+
+export function clearStatus() {
+  return {
+    type: CLEAR_STATUS
   };
 }
