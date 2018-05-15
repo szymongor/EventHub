@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { formSubmit } from '../../actions/form_actions';
 import EventFormLayout from './event_form_layout';
 import moment from 'moment';
 
@@ -11,6 +13,7 @@ class EventForm extends Component {
 
     this.handleDateChange = this.handleDateChange.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleDateChange(date) {
@@ -28,8 +31,13 @@ class EventForm extends Component {
     this.setState({
       [name]: value
     });
+  }
 
-    console.log(this.state);
+  handleSubmit(event) {
+    event.preventDefault();
+    this.props.formSubmit(this.state);
+    //console.log(this.state);
+    //this.props.onSubmit(this.state);
   }
 
   render() {
@@ -38,9 +46,10 @@ class EventForm extends Component {
         selectedDate={this.state.startDate}
         handleInputChange={this.handleInputChange}
         handleDateChange={this.handleDateChange}
+        handleSubmit={this.handleSubmit}
       />
     );
   }
 }
 
-export default EventForm;
+export default connect(null, { formSubmit })(EventForm);

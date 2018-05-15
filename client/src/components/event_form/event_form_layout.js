@@ -16,10 +16,11 @@ import './event_form.css';
 const EventFormLayout = ({
   selectedDate,
   handleDateChange,
-  handleInputChange
+  handleInputChange,
+  handleSubmit
 }) => {
   return (
-    <Form horizontal>
+    <Form horizontal onSubmit={handleSubmit}>
       <FormGroup controlId="formHorizontalFirstName">
         <Col componentClass={ControlLabel} sm={3}>
           First Name
