@@ -23,64 +23,66 @@ const EventFormLayout = ({
   message
 }) => {
   return (
-    <Form horizontal onSubmit={handleSubmit}>
-      <FormGroup controlId="formHorizontalFirstName">
-        <Col componentClass={ControlLabel} sm={3}>
-          First Name
-        </Col>
-        <Col sm={9}>
-          <FormControl
-            type="text"
-            placeholder="First Name"
-            name={'firstName'}
-            onChange={handleInputChange}
-          />
-        </Col>
-      </FormGroup>
-      <FormGroup controlId="formHorizontalLastName">
-        <Col componentClass={ControlLabel} sm={3}>
-          Last Name
-        </Col>
-        <Col sm={9}>
-          <FormControl
-            type="text"
-            placeholder="Last Name"
-            name={'lastName'}
-            onChange={handleInputChange}
-          />
-        </Col>
-      </FormGroup>
-      <FormGroup controlId="formHorizontalEmail">
-        <Col componentClass={ControlLabel} sm={3}>
-          Email
-        </Col>
-        <Col sm={9}>
-          <FormControl
-            type="email"
-            placeholder="Email"
-            name={'email'}
-            onChange={handleInputChange}
-          />
-        </Col>
-      </FormGroup>
-      <FormGroup controlId="formHorizontalDate">
-        <Col componentClass={ControlLabel} sm={3}>
-          Date
-        </Col>
-        <Col sm={9}>
-          <DatePicker
-            customInput={<FormControl />}
-            selected={selectedDate}
-            onChange={handleDateChange}
-            showTimeSelect
-            timeFormat="HH:mm"
-            dateFormat="DD-MM-YYYY HH:mm"
-          />
-        </Col>
-      </FormGroup>
-      <Message status={status} message={message} />
-      <FormButtonsLayout />
-    </Form>
+    <div>
+      <Form horizontal onSubmit={handleSubmit}>
+        <FormGroup controlId="formHorizontalFirstName">
+          <Col componentClass={ControlLabel} sm={3}>
+            First Name
+          </Col>
+          <Col sm={9}>
+            <FormControl
+              type="text"
+              placeholder="First Name"
+              name={'firstName'}
+              onChange={handleInputChange}
+            />
+          </Col>
+        </FormGroup>
+        <FormGroup controlId="formHorizontalLastName">
+          <Col componentClass={ControlLabel} sm={3}>
+            Last Name
+          </Col>
+          <Col sm={9}>
+            <FormControl
+              type="text"
+              placeholder="Last Name"
+              name={'lastName'}
+              onChange={handleInputChange}
+            />
+          </Col>
+        </FormGroup>
+        <FormGroup controlId="formHorizontalEmail">
+          <Col componentClass={ControlLabel} sm={3}>
+            Email
+          </Col>
+          <Col sm={9}>
+            <FormControl
+              type="email"
+              placeholder="Email"
+              name={'email'}
+              onChange={handleInputChange}
+            />
+          </Col>
+        </FormGroup>
+        <FormGroup controlId="formHorizontalDate">
+          <Col componentClass={ControlLabel} sm={3}>
+            Date
+          </Col>
+          <Col sm={9}>
+            <DatePicker
+              customInput={<FormControl />}
+              selected={selectedDate}
+              onChange={handleDateChange}
+              showTimeSelect
+              timeFormat="HH:mm"
+              dateFormat="DD-MM-YYYY HH:mm"
+            />
+          </Col>
+        </FormGroup>
+        <Message status={status} message={message} />
+        <FormButtonsLayout />
+      </Form>
+    </div>
   );
 };
 

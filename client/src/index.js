@@ -8,6 +8,7 @@ import App from './App';
 import processFormMDL from './middleware/process_form';
 import apiMDL from './middleware/api_mdl';
 import reducers from './reducers';
+import registerServiceWorker from './registerServiceWorker';
 
 const createStoreWithMiddleware = applyMiddleware(
   promise,
@@ -21,3 +22,5 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('root')
 );
+
+registerServiceWorker();
