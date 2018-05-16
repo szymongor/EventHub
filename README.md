@@ -1,4 +1,4 @@
-# Category Editor
+# EventHub
 
 App to create an event and save it in MongoDB.
 
