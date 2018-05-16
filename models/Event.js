@@ -11,7 +11,6 @@ const eventSchema = new Schema({
 const Event = (module.exports = mongoose.model('event', eventSchema));
 
 module.exports.addEvent = (event, callback) => {
-  console.log('Event: ', event);
   var event = new Event(event);
   event.save(callback);
 };

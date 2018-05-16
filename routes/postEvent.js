@@ -9,9 +9,6 @@ module.exports = app => {
         throw err;
       }
       res.json(event);
-      // Event.find({}, (err, docs) => {
-      //   console.log(docs);
-      // });
     });
   });
 };

@@ -3,8 +3,6 @@ import { showMessage } from '../actions/form_actions';
 
 const actionLogger = store => next => action => {
   if (action.type === API_POST_EVENT) {
-    console.log('Type: ', action.type);
-    console.log(action.payload);
   }
   let result = next(action);
 

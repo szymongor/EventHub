@@ -12,7 +12,6 @@ const normalizeForm = store => next => action => {
       eventDate: formFields.startDate.format()
     };
     action.payload.data = formData;
-    console.log(formData);
   }
   let result = next(action);
 
