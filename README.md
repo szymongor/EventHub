@@ -23,15 +23,7 @@ cd EventHub
 ```
 
 ```
-npm install
-```
-
-```
-cd client
-```
-
-```
-npm install
+npm run init
 ```
 
 ### Running
