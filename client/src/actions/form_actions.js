@@ -1,7 +1,8 @@
 export const FORM_SUBMIT = 'FORM_SUBMIT';
 export const VALID_FORM_SUBMIT = 'VALID_FORM_SUBMIT';
 export const INVALID_FORM_SUBMIT = 'INVALID_FORM_SUBMIT';
-export const CLEAR_STATUS = 'CLEAR_STATUS';
+export const SHOW_MESSAGE = 'SHOW_MESSAGE';
+export const CLEAR_MESSAGE = 'CLEAR_MESSAGE';
 
 export function formSubmit(formFields) {
   return {
@@ -12,28 +13,18 @@ export function formSubmit(formFields) {
   };
 }
 
-export function validFormSubmit(formFields) {
-  console.log(formFields);
+export function showMessage(status, message) {
   return {
-    type: VALID_FORM_SUBMIT,
+    type: SHOW_MESSAGE,
     payload: {
-      formFields
+      status,
+      message
     }
   };
 }
 
-export function invalidFormSubmit(status) {
-  console.log(status);
+export function clearMessage() {
   return {
-    type: INVALID_FORM_SUBMIT,
-    payload: {
-      status
-    }
-  };
-}
-
-export function clearStatus() {
-  return {
-    type: CLEAR_STATUS
+    type: CLEAR_MESSAGE
   };
 }

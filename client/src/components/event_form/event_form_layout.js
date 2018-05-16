@@ -98,10 +98,8 @@ const FormButtonsLayout = props => {
 };
 
 const Message = ({ status, message }) => {
-  if (status === 'SUCCESS') {
-    return <Alert bsStyle="success">{message}</Alert>;
-  } else if (status === 'FAIL') {
-    return <Alert bsStyle="danger">{message}</Alert>;
+  if (status) {
+    return <Alert bsStyle={status}>{message}</Alert>;
   } else {
     return <div />;
   }

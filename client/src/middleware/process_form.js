@@ -1,8 +1,4 @@
-import {
-  validFormSubmit,
-  invalidFormSubmit,
-  FORM_SUBMIT
-} from '../actions/form_actions';
+import { showMessage, FORM_SUBMIT } from '../actions/form_actions';
 
 import { postCategory } from '../actions/api_actions';
 
@@ -42,10 +38,12 @@ const formValidation = store => next => action => {
 const actionRouter = store => next => action => {
   if (action.type === FORM_SUBMIT) {
     if (action.payload.status.validForm) {
-      store.dispatch(validFormSubmit(action.payload.data));
+      store.dispatch(
+        showMessage('success', 'The form has been completed correctly')
+      );
       store.dispatch(postCategory(action.payload.data));
     } else {
-      store.dispatch(invalidFormSubmit(action.payload.status));
+      store.dispatch(showMessage('danger', 'Please fill all form fields'));
     }
   }
   let result = next(action);

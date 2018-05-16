@@ -6,11 +6,14 @@ import { Provider } from 'react-redux';
 import promise from 'redux-promise';
 import App from './App';
 import processFormMDL from './middleware/process_form';
+import apiMDL from './middleware/api_mdl';
 import reducers from './reducers';
 
-const createStoreWithMiddleware = applyMiddleware(promise, ...processFormMDL)(
-  createStore
-);
+const createStoreWithMiddleware = applyMiddleware(
+  promise,
+  ...processFormMDL,
+  ...apiMDL
+)(createStore);
 
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>

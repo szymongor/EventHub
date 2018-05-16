@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { formSubmit, clearStatus } from '../../actions/form_actions';
+import { formSubmit, clearMessage } from '../../actions/form_actions';
 import EventFormLayout from './event_form_layout';
 import moment from 'moment';
 
@@ -17,13 +17,14 @@ class EventForm extends Component {
   }
 
   handleDateChange(date) {
+    this.props.clearMessage();
     this.setState({
       startDate: date
     });
   }
 
   handleInputChange(event) {
-    this.props.clearStatus();
+    this.props.clearMessage();
     const target = event.target;
     const value = target.type === 'checkbox' ? target.checked : target.value;
     const name = target.name;
@@ -59,4 +60,6 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { formSubmit, clearStatus })(EventForm);
+export default connect(mapStateToProps, { formSubmit, clearMessage })(
+  EventForm
+);
